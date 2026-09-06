@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Points Transfer Calculator</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Points Transfer Calculator</h1>
+      <p class="subtitle">Find out how many points to transfer with your bonus</p>
+    </header>
+
+    <section class="glass-card" aria-labelledby="target-label">
+      <label id="target-label" for="target-points">Partner points needed</label>
+      <input
+        type="text"
+        inputmode="numeric"
+        id="target-points"
+        class="glass-input"
+        placeholder="Enter your target points"
+        autocomplete="off"
+      >
+    </section>
+
+    <div class="bonus-toggle" role="radiogroup" aria-label="Transfer bonus input mode">
+      <button type="button" class="toggle-btn active" data-mode="percentage" role="radio" aria-checked="true">
+        Percentage
+      </button>
+      <button type="button" class="toggle-btn" data-mode="ratio" role="radio" aria-checked="false">
+        Conversion ratio
+      </button>
+    </div>
+
+    <section class="glass-card bonus-section" aria-labelledby="bonus-label">
+      <span id="bonus-label" class="section-label">Transfer bonus</span>
+
+      <div class="bonus-panel" data-panel="percentage">
+        <label for="bonus-percent">Bonus percentage</label>
+        <div class="input-with-suffix">
+          <input
+            type="text"
+            inputmode="decimal"
+            id="bonus-percent"
+            class="glass-input"
+            placeholder="30"
+            autocomplete="off"
+          >
+          <span class="suffix">%</span>
+        </div>
+      </div>
+
+      <div class="bonus-panel hidden" data-panel="ratio">
+        <div class="ratio-row">
+          <div class="ratio-field">
+            <label for="ratio-source">Source points</label>
+            <input
+              type="text"
+              inputmode="numeric"
+              id="ratio-source"
+              class="glass-input"
+              placeholder="1,000"
+              autocomplete="off"
+            >
+          </div>
+          <span class="ratio-equals" aria-hidden="true">=</span>
+          <div class="ratio-field">
+            <label for="ratio-dest">Partner points</label>
+            <input
+              type="text"
+              inputmode="numeric"
+              id="ratio-dest"
+              class="glass-input"
+              placeholder="1,300"
+              autocomplete="off"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card result-card" aria-live="polite" aria-atomic="true">
+      <p class="result-label">You need</p>
+      <p class="result-value" id="result-value">—</p>
+      <p class="result-unit">source points</p>
+      <p class="result-detail" id="result-detail">Enter your target and bonus to calculate</p>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
